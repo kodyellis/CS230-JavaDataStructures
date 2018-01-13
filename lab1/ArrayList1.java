@@ -33,6 +33,7 @@ public class ArrayList1
       openFile();
       readData();
       displayResults();
+      System.out.println("Average GPA:" + averageGPA);
       infile.close();
    } // method getStarted
 
@@ -125,6 +126,5 @@ public class ArrayList1
       System.out.println("Age: " + who.getAge());
       System.out.println("GPA: " + who.getGPA());
 
-      System.out.println("Average GPA:" + averageGPA);
    } // method displayStudentRecord
 } // class ArrayList1
