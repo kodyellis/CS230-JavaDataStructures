@@ -4,7 +4,7 @@
 
   The data file contains student records which are formatted as follows:
 
-          Field name            Columns
+          Field name            Columns (a.k.a. indexes)
      ==========================================
              Name                1 - 20
              Age                21 - 22
@@ -20,6 +20,8 @@ import java.util.*;        // for Scanner class
 
 class FormattedInput02
 {
+  //final keyword makes these varibales, constant values, meaning you can't change them when aprogram is running.
+  //private keyword makes it so that these variables can only be accesed inside of the class.
    private static final int NAME_WIDTH = 20;
    private static final int AGE_WIDTH = 2;
    private static final int GPA_WIDTH = 5;
@@ -32,13 +34,16 @@ class FormattedInput02
    {
       FormattedInput02 one;
 
+     //makes a new instance of this class
       one = new FormattedInput02();
+     
       one.getStarted();
    } // method main
 
 
    /**
-      Starts the program using an object of the class
+      Default Constructor
+      This makes creates a new Student type array list.
    */
    public FormattedInput02()
    {
@@ -65,12 +70,16 @@ class FormattedInput02
       Scanner input;
       String infile_name;
       File file;
-
+      
+     //Scanner will look for keyboard input.
       input = new Scanner(System.in);
+     
       do
       {
          System.out.print("Enter the input file name: ");
+        //gets files name. stops looking at keybaord when user presses ENTER
          infile_name = input.next();
+        
          file = new File(infile_name);
          if (file.exists())
             infile = new Scanner(file);
@@ -99,14 +108,17 @@ class FormattedInput02
          // obtain name field
          name = text.substring(0, NAME_WIDTH); // extract name field
          name = name.trim(); // remove leading and trailing spaces
+        //definetly need to use trim here, as we captured the name and all of the space behind them name and placed
+        //that into the name variable.
 
-         // remove name field from text
+         // remove the whole name field from text. Now substring index can start at 0 again for other variables.
          text = text.substring(NAME_WIDTH, text.length());
 
          // extract age field from text and convert it to an int type
          age = Integer.parseInt(text.substring(0, AGE_WIDTH));
 
-         // extract gpa field from text and convert it to a double type
+         // extract gpa field from text and convert it to a double type. We place AGE_WIDTH into the first parameter
+        //as gpa is after it.
          gpa = Double.parseDouble(text.substring(AGE_WIDTH, AGE_WIDTH+GPA_WIDTH)); //AGE_WIDTH + GPA_WIDTH
 
          ssNumber = text.substring(AGE_WIDTH+GPA_WIDTH,AGE_WIDTH+GPA_WIDTH+SSNUMBER_WIDTH);
