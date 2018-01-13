@@ -1,5 +1,5 @@
 /**
-  file name -- ShowRead01.java
+  file name -- lab32.java
   This program shows how to read data from the keyboard in Java.
 */
 
@@ -16,14 +16,17 @@ class lab32
    {
       Scanner source;
       double a,b,c,s,area;
+     //creates new decimal format object called two. This will help us format decimal numbers
       DecimalFormat two = new DecimalFormat();
+     //uses this method to set the decimal digits to 2
       two.setMaximumFractionDigits(2);
 
       source = new Scanner(System.in);
       int error = 0;
-
+     
+      //if side doesnt meet triangle law then resend message
       do {
-        //if statennt if side diesnt meet triangkle law then reorint message
+        //if side doesnt meet triangle law then resend message
         System.out.print("Enter the length of the first side of the triangle: ");
         a = source.nextDouble();
 
@@ -42,8 +45,10 @@ class lab32
 
      }while( error == 1);
 
-      // calculate total cost of the shirt's purchased
+      // calculate the semi perimeter for this triangle.total cost of the shirt's purchased
       s = ( (a + b + c) / 2);
+     
+     //Uses Heron's formula 
       area = sqrt( s*(s-a)*(s-b)*(s-c) );
 
       System.out.println("The area of the triangle with sides: " + a + ", " + b + " and " +  c + " is : " + two.format(area));
