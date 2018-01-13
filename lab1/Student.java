@@ -2,6 +2,7 @@
 
 /**
    A class to represent students objects.
+   Many of the functions are easy to see representations of getters and setters.
 */
 public class Student
 {
